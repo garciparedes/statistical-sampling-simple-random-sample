@@ -16,8 +16,38 @@
 %	TEXT
 %-----------------------------
 
+  \section{Demostraciones}
+
+    \subsection{Probabilidad de selección en muestreo aleatorio simple sin reemplazamiento (m.a.s)}
+
+      \begin{align}
+        \pi_k = \frac{n}{N}
+      \end{align}
+
+    \subsection{Probabilidad de selección en muestreo aleatorio con reemplazamiento}
+
+      \begin{align}
+        \pi_k = 1 - \left(1 - \frac{n}{N}\right)^n
+      \end{align}
+
+    \subsection{Probabilidad de selección de dos elementos en muestreo aleatorio simple sin reemplazamiento (m.a.s)}
+
+      \begin{align}
+        \pi_{kl} = \frac{n(n-1)}{N(N-1)}
+      \end{align}
+
+    \subsection{Varianza del $\pi$-estimador para proporciones en muestreo aleatorio simple sin reemplazamiento (m.a.s)}
 
 
+      \begin{align}
+        \widehat{Var(\widehat{P}_\pi)} = \frac{1-f}{n-1}\widehat{P}_\pi(1-\widehat{P}_\pi)
+      \end{align}
+
+    \subsection{Intervalo de confianza del $\pi$-estimador para el total poblacional en muestreo aleatorio simple sin reemplazamiento (m.a.s)}
+
+      \begin{align}
+        Pr\left(\tau \in \left[\widehat{\tau}_\pi \pm z_{1-\alpha/2}\sqrt{Var[\widehat{\tau}_\pi]}\right]\right) = 1-\alpha
+      \end{align}
 %-----------------------------
 %	Bibliographic references
 %-----------------------------
