@@ -61,9 +61,34 @@
     \subsection{Varianza del $\pi$-estimador para proporciones en muestreo aleatorio simple sin reemplazamiento (m.a.s)}
 
       \paragraph{}
+      Para la demostración de $\widehat{Var(\widehat{P}_\pi)}$ nos apoyaremos en distintas propiedades tanto de la varianza, que utilizaremos para reducir dicha definición a la varianza del total poblacional, definido tal y como se indica en la ecuación \eqref{eq:var_eq_1}, que supondremos como cierto.
 
+      \begin{equation}
+      \label{eq:var_eq_1}
+        Var(\widehat{\tau}_\pi) = \frac{N^2(1-f)}{n}\sigma^{2}
+      \end{equation}
+
+      \paragraph{}
+      El primer paso será por tanto obtener una estimación de dicho valor, para lo cual se utilizará la cuasi-varianza muestral tal y como se indica en la ecuación \eqref{2}:
+
+      \begin{equation}
+      \label{eq:var_eq_2}
+        \widehat{Var(\widehat{\tau}_\pi)} = \frac{N^2(1-f)}{n}S^{*^{2}} = \frac{N^2(1-f)}{n-1}S^{2}
+      \end{equation}
+
+      \paragraph{}
+      A partir de dicha ecuación, lo siguiente es añadir la división entre $N$ al estimador del total poblacional, para obtener un promedio, lo cual produce el cuadrado de dicho valor en la varianza, por propiedades de la misma. Dicha transformación se muestra en la ecuación \eqref{eq:var_eq_3}
+
+      \begin{equation}
+      \label{eq:var_eq_3}
+        \widehat{Var(\frac{\widehat{\tau}_\pi}{N})} = \widehat{Var(\widehat{\mu})} = \frac{N^2(1-f)}{nN^2}S^{*^{2}} = \frac{(1-f)}{n-1}S^{2}
+      \end{equation}
+
+      \paragraph{}
+      Es trivial probar que $\mu = P$ cuando la variable estudiada es dicotómica, por tanto, se puede seguir dicho paso sin más demostraciones. A partir de dicha presuposición de dicotomía, entonces se sabe que $S^2=\widehat{P}_\pi(1-\widehat{P}_\pi)$ puesto que en dicho caso la variable sigue una distribución de \emph{Bernoulli}. Entonces queda probada la ecuación \eqref{eq:var_eq_4}.
 
       \begin{align}
+      \label{eq:var_eq_4}
         \widehat{Var(\widehat{P}_\pi)} = \frac{1-f}{n-1}\widehat{P}_\pi(1-\widehat{P}_\pi)
       \end{align}
 
