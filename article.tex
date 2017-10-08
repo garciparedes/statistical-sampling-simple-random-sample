@@ -60,6 +60,8 @@
 
     \subsection{Varianza del $\pi$-estimador para proporciones en muestreo aleatorio simple sin reemplazamiento (m.a.s)}
 
+      \paragraph{}
+
 
       \begin{align}
         \widehat{Var(\widehat{P}_\pi)} = \frac{1-f}{n-1}\widehat{P}_\pi(1-\widehat{P}_\pi)
@@ -67,13 +69,39 @@
 
     \subsection{Intervalo de confianza del $\pi$-estimador para el total poblacional en muestreo aleatorio simple sin reemplazamiento (m.a.s)}
 
+      \paragraph{}
+      En este caso se pretende probar el intervalo de confianza de nivel $1-\alpha$ para la distribución de probabilidades referida a la variable aleatoria $\tau$, es decir, a la suma del total poblacional para la variable $Y$. Es decir, se pretende probar la igualdad descrita en la ecuación \eqref{eq:confidence_interval}. Dicha demostración se llevará a cabo siguiendo la notación de valores de probabilidad.
+
       \begin{align}
-        Pr\left(\tau \in \left[\widehat{\tau}_\pi \pm z_{1-\alpha/2}\sqrt{Var[\widehat{\tau}_\pi]}\right]\right) = 1-\alpha
+      \label{eq:confidence_interval}
+        \left[\widehat{\tau}_\pi \pm z_{1-\alpha/2}\sqrt{\widehat{Var}[\widehat{\tau}_\pi]}\right] &\equiv \Pr\left(\tau\in \left[\widehat{\tau}_\pi \pm z_{1-\alpha/2}\sqrt{Var[\widehat{\tau}_\pi]}\right]\right) = 1-\alpha
+      \end{align}
+
+      \paragraph{}
+      Un paso previo para la demostración del intervalo de confianza es la demostración de la ecuación \eqref{eq:normal_asumption}. Por el \emph{Teorema Central del Límite} se puede asumir que la distribución $\tau$ sigue una distribución normal con media $\widehat{\tau}$ y varianza $Var[\widehat{\tau}_\pi]$. Por tanto, este puede ser tipificado a una distribución normal estándar. Esta propiedad se indica en la ecuación \eqref{eq:normal_asumption}
+
+      \begin{align}
+      \label{eq:normal_asumption}
+        \frac{\widehat{\tau}_\pi - \tau}{\sqrt{Var[\widehat{\tau}_\pi]}} \sim N(0,1)
+      \end{align}
+
+      \paragraph{}
+      Por tanto, para demostrar que el intervalo de confianza sigue un nivel $1-\alpha$ basta con aplicar distintas propiedades algebraicas sobre este, hasta llegar a la distribución normal estándar tal y como se indicó en la ecuación \eqref{eq:normal_asumption}, que debido a su simetría permite sustituir el intervalo multiplicando por $2$ el valor de $\alpha$. Por último, debido a las propiedades de la distribución normal estándar, queda demostrado que en hasta el percentil $z_{1-\alpha}$ se localiza la probabilidad $1-\alpha$.
+
+      \begin{align}
+        \Pr\left(\tau\in \left[\widehat{\tau}_\pi \pm z_{1-\alpha/2}\sqrt{Var[\widehat{\tau}_\pi]}\right]\right) &=\\
+        &= \Pr\left(\tau - \widehat{\tau}_\pi \in \left[\pm z_{1-\alpha/2}\sqrt{Var[\widehat{\tau}_\pi]}\right]\right) \\
+        &= \Pr\left(\frac{\tau - \widehat{\tau}_\pi}{\sqrt{Var[\widehat{\tau}_\pi]}} \in \left[\pm z_{1-\alpha/2}\right]\right)  \\
+        &= \Pr\left(\frac{\widehat{\tau}_\pi - \tau}{\sqrt{Var[\widehat{\tau}_\pi]}} \not\in \left[\pm z_{1-\alpha/2}\right]\right)  \\
+        &= \Pr\left(N(0,1) \not\in [\pm z_{1-\alpha/2}]\right) \\
+        &= \Pr\left(N(0,1) \geq z_{1-\alpha}\right) \\
+        &=  1- \alpha
       \end{align}
 %-----------------------------
 %	Bibliographic references
 %-----------------------------
 	\nocite{muest2017}
+  \nocite{sarndal2003model}
 
   \bibliographystyle{alpha}
   \bibliography{bib}
