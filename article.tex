@@ -24,9 +24,7 @@
     \subsection{Probabilidad de inclusión de primer y segundo nivel en muestreo aleatorio simple sin reemplazamiento (m.a.s)}
 
       \paragraph{}
-      La probabilidad de inclusión en el muestreo aleatorio simple sin reemplazamiento viene condicionada por dos factores diferentes:
-
-      \begin{enumerate*}[label=(\alph*)]
+      La probabilidad de inclusión en el muestreo aleatorio simple sin reemplazamiento viene condicionada por dos factores diferentes: \begin{enumerate*}[label=(\alph*)]
         \item el número de posibles muestras que incluyan el elemento $k$-ésimo determinado por $\binom{N-1}{n-1}$ y el de posibles muestras que incluyan los elementos $k$ y $l$ tales que $k \neq l$ determinado por $\binom{N-2}{n-2}$ así como,
         \item la probabilidad de elegir una determinada muestra de tamaño $n$ de entre todas las posibles, definida como $\frac{1}{\binom{N}{n}}$.
       \end{enumerate*}
@@ -47,8 +45,17 @@
 
     \subsection{Probabilidad de inclusión de primer nivel en muestreo aleatorio con reemplazamiento}
 
+      \paragraph{}
+      Para el caso del muestreo aleatorio simple con reemplazamiento, la probabilidad de inclusión de primer nivel se define de manera diferente respecto de la del caso sin reemplazamiento. Esto se debe a que una observación $k$ puede aparecer más de una vez en una determinada muestra $s$.
+
+      \paragraph{}
+      En este caso, para probar la probabilidad de inclusión del elemento $k$-ésimo en la muestra nos apoyaremos en la distribución \emph{Binomial}, que modeliza la probabilidad de selección con reeemplazamiento de un elemento de entre $N$ posibles con probabilidad $p$. En este caso escogeremos $p = \frac{1}{N}$, que es la probabilidad de selección de una observación en la muestra.
+
+      \paragraph{}
+      Por tanto, definiremos la variable $X \sim B(n, \frac{1}{N})$. Para probar la probabilidad de que el elemento sea seleccionado al menos una vez, necesitamos conocer $P(X \geq 1) = P(X=1 + P(X=2) + ... + P(X=n)$. Sin embargo, esta probabilidad puede ser calculada de manera sencilla como $P(X \geq 1) = 1- P(X = 0)$. Puesto que $P(X=0) = \binom{n}{0}(\frac{1}{N})^0(1- \frac{1}{N})^{n-0} =\left(1 - \frac{1}{N}\right)^n$. Dado que la probabilidad de inclusión $\pi_k= P(X \geq 1)$ por definición, entonces:
+
       \begin{align}
-        \pi_k = 1 - \left(1 - \frac{n}{N}\right)^n
+        \pi_k = 1 - \left(1 - \frac{1}{N}\right)^n
       \end{align}
 
     \subsection{Varianza del $\pi$-estimador para proporciones en muestreo aleatorio simple sin reemplazamiento (m.a.s)}
