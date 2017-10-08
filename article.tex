@@ -18,22 +18,37 @@
 
   \section{Demostraciones}
 
-    \subsection{Probabilidad de selección en muestreo aleatorio simple sin reemplazamiento (m.a.s)}
+    \paragraph{}
+    A continuación se demuestran distintas propiedades relacionadas con los estadísticos referidos al muestreo aleatorio simple con y sin reemplazamiento.
+
+    \subsection{Probabilidad de inclusión de primer y segundo nivel en muestreo aleatorio simple sin reemplazamiento (m.a.s)}
+
+      \paragraph{}
+      La probabilidad de inclusión en el muestreo aleatorio simple sin reemplazamiento viene condicionada por dos factores diferentes:
+
+      \begin{enumerate*}[label=(\alph*)]
+        \item el número de posibles muestras que incluyan el elemento $k$-ésimo determinado por $\binom{N-1}{n-1}$ y el de posibles muestras que incluyan los elementos $k$ y $l$ tales que $k \neq l$ determinado por $\binom{N-2}{n-2}$ así como,
+        \item la probabilidad de elegir una determinada muestra de tamaño $n$ de entre todas las posibles, definida como $\frac{1}{\binom{N}{n}}$.
+      \end{enumerate*}
+
+      \paragraph{}
+      Nótese que dichos valores provienen del área de teoría combinatoria, donde se cumple la siguiente propiedad: \say{Sean n elementos distintos y $k \leq n$. A las distintas agrupaciones no ordenadas de $k$ elementos elegidos entre $n$ distintos se las denomina combinaciones de $n$ elementos tomados en grupos de $k$, y el número de dichas combinaciones es $\binom{N}{k}$}\cite{matematicaDiscreta2016notes}
+
+      \paragraph{}
+      Por tanto, la probabilidad de inclusión queda determinada por el sumatorio de las probabilidades de todas aquellas muestras que incluyen al elemento $k$ para el caso del primer nivel y de los ementos $\{k, l\}$, con $k \neq l$ para el segundo nivel:
 
       \begin{align}
-        \pi_k = \frac{n}{N}
+        \pi_k = \sum_{k \in s}p(s) = \frac{\binom{N-1}{n-1}}{\binom{N}{n}}\frac{n}{N}
       \end{align}
 
-    \subsection{Probabilidad de selección en muestreo aleatorio con reemplazamiento}
+      \begin{align}
+        \pi_{kl} = \sum_{\{k,l\} \in s}p(s) = \frac{\binom{N-2}{n-2}}{\binom{N}{n}} = \frac{n(n-1)}{N(N-1)}
+      \end{align}
+
+    \subsection{Probabilidad de inclusión de primer nivel en muestreo aleatorio con reemplazamiento}
 
       \begin{align}
         \pi_k = 1 - \left(1 - \frac{n}{N}\right)^n
-      \end{align}
-
-    \subsection{Probabilidad de selección de dos elementos en muestreo aleatorio simple sin reemplazamiento (m.a.s)}
-
-      \begin{align}
-        \pi_{kl} = \frac{n(n-1)}{N(N-1)}
       \end{align}
 
     \subsection{Varianza del $\pi$-estimador para proporciones en muestreo aleatorio simple sin reemplazamiento (m.a.s)}
